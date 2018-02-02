@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+.header > h1{
+  background-color: lightgrey;
+  color: blue;
+  padding: 5px;
+}
+.wrapper{
+      display:grid;
+      grid-template-columns: 1fr 2fr;
+      grid-gap: 10px;
+      grid-auto-rows: minmax(40px,auto);
+    }
+.wrapper > div{
+      background-color: #E878A3;
+      padding: 10px;
+      font-family: courier;
+    }
+
+.wrapper > div:nth-child(odd){
+  background-color: #C1EC96;
+
+}

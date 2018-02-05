@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Profile</title>
+</head>
+<body>
+  <% provide(:title, @user.name) %>
+  <h1>
+    <%= @user.name %>
+  </h1>
+  <div class="wrapper">  
+    <div>
+      <strong>Screen Name: </strong><%= @user.screen_name %><br>
+      <strong>Email: </strong><%= @user.email %>
+    </div>
+  </div>
+
+</body>
+</html>

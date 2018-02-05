@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Users</title>
+</head>
+<body>
+  <h2>Users</h2>
+
+      <table>
+        <tr>
+          <th>User</th>
+          <th>Name</th>
+          <th>email</th>
+          <th>permission</th>
+        </tr>
+        <% @users.each do |user| %>
+        <tr>
+          <td><%= user.screen_name%></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.permission %></td>
+        </tr>
+        <% end %>
+      </table>
+
+</body>
+</html>

@@ -35,8 +35,13 @@
   background-color: #C1EC96;
 
 }
-
-
+.clearfix{
+  float: left;
+  overflow: auto;
+}
+.login{
+  float: right;
+}
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;

@@ -9,9 +9,26 @@
   </div>
   <div class="wrapper">
     <div>
-      <p>
-        New User?<br>
-        <%= link_to "Sign Up!", new_user_path %>
+      <p class="clearfix">
+        Here is some descriptive text about this forum!
+        Here is some descriptive text about this forum!
+        Here is some descriptive text about this forum!
+        Here is some descriptive text about this forum!
+      </p>
+      <div class="login" align="right">
+        <%= form_for(:session, url: login_path) do |form| %>
+          <%= form.label :screen_name %>
+          <%= form.text_field :screen_name %><br>
+
+          <%= form.label :password %>
+          <%= form.password_field :password %><br>
+
+          <%= form.submit "Log In", class: "btn btn-primary" %>
+        <% end %>
+        <p>
+          New User?<br>
+          <%= link_to "Sign Up!", new_user_path %>
+      </div>
       </p>
     </div>
   </div>

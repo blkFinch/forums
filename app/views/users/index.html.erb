@@ -4,6 +4,10 @@
   <title>Users</title>
 </head>
 <body>
+  <header>
+    <%= link_to 'Home', root_url %> | 
+    <%= link_to 'Profile', current_user %>
+  </header>
   <h2>Users</h2>
 
       <table>
@@ -12,6 +16,7 @@
           <th>Name</th>
           <th>email</th>
           <th>permission</th>
+          <th></th>
         </tr>
         <% @users.each do |user| %>
         <tr>
@@ -19,6 +24,7 @@
           <td><%= user.name %></td>
           <td><%= user.email %></td>
           <td><%= user.permission %></td>
+          <td><%= link_to 'edit', edit_user_path(user) %></td>
         </tr>
         <% end %>
       </table>

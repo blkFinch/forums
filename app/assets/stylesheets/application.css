@@ -23,7 +23,7 @@
       display:grid;
       grid-template-columns: 1fr 2fr;
       grid-gap: 10px;
-      grid-auto-rows: minmax(40px,auto);
+      grid-auto-rows: minmax(auto,auto);
     }
 .wrapper > div{
       background-color: #E878A3;
@@ -35,6 +35,14 @@
   background-color: #C1EC96;
 
 }
+
+.profile_picture{
+  float: left;
+  margin-right: 10px;
+}
+
+
+
 .clearfix{
   float: left;
   overflow: auto;

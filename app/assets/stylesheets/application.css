@@ -25,15 +25,24 @@
       grid-gap: 10px;
       grid-auto-rows: minmax(auto,auto);
     }
-.wrapper > div{
+#post_wrapper{
       background-color: #E878A3;
       padding: 10px;
       font-family: courier;
+      grid-auto-rows: minmax(auto,auto);
     }
 
 .wrapper > div:nth-child(odd){
   background-color: #C1EC96;
+  max-height: 250px;
 
+}
+
+
+.articles{
+  color: white;
+  list-style: none;
+  display: block;
 }
 
 .profile_picture{
@@ -46,9 +55,11 @@
 .clearfix{
   float: left;
   overflow: auto;
+  margin:10px;
 }
 .login{
   float: right;
+  margin: 10px;
 }
 @mixin box_sizing {
   -moz-box-sizing:    border-box;

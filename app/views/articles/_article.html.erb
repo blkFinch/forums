@@ -1,0 +1,9 @@
+<li id="article-<%= article.id %>">
+  <span class="title"><strong><%= article.title %></strong></span><br>
+  <span class="body"><%= article.body %></span><br>
+  <span class="user"><%= link_to article.user.screen_name, article.user %></span>
+  <span class="timestamp">
+    <em>Posted <%= time_ago_in_words(article.created_at) %> ago.</em>
+  </span>
+  <hr>
+</li>

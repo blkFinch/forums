@@ -20,13 +20,25 @@
         <strong>Screen Name: </strong><%= @user.screen_name %><br>
         <strong>Email: </strong><%= @user.email %><br>
         <%= link_to 'edit', edit_user_path(@user) %>
-        <% if @user.permission >= 3 %>
+        <% if current_user.permission >= 3 %>
           <div class="admin_control">
             <em>Admin Controls: </em><br>
             <%= link_to 'All Users', users_path %>
-        <% end %>
+          </div>
+        <% end %><br><br>
+        <%= render 'shared/article_form' %>
       </div>
     </div>
+  <div id="post_wrapper">
+    <% if @articles.any? %>
+      <div>
+        <strong>Posts</strong>
+        <ol class="articles">
+          <%= render @articles %>
+        </ol>
+      </div>
+    <% end %>
+  </div>
   </div>
 
 </body>

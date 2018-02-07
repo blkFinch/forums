@@ -9,6 +9,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @articles = @user.articles
+    @article = current_user.articles.build if logged_in?
   end
 
   def new
@@ -41,17 +43,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to root_url
+  end
+
   private
     def user_params
       params.require(:user).permit(:name, :screen_name, :password, :password_confirmation, 
                                   :email, :permission)
-    end
-
-    def logged_in_user
-      unless logged_in?
-        flash[:danger]  = "Please log in!"
-        redirect_to login_url
-      end
     end
 
     def correct_user

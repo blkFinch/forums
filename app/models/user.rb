@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :articles, dependent: :destroy
   before_save { email.downcase! }
   validates :screen_name, presence: true, length: { maximum: 25 },
                           uniqueness: true

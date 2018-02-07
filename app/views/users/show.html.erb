@@ -4,6 +4,7 @@
   <title>User Profile</title>
 </head>
 <body>
+  <header><%= link_to "Home", root_path %></header>
   <% provide(:title, @user.name) %>
   <h1>
     <%= @user.name %>

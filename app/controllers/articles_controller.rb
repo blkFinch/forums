@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+
+  before_action :logged_in_user, only: [ :show]
+
   def index
   end
 
@@ -14,11 +17,13 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @comments = @article.comments.by_time.reverse_order
   end
 
   def destroy
+    @article = Article.find(params[:id])
     @article.destroy
-    redirect_to_user_path(current_user) 
+    redirect_to user_path(current_user) 
   end
 
   private
@@ -28,7 +33,7 @@ class ArticlesController < ApplicationController
     end
 
     def correct_user
-      @micropost = current_user.articles.find_by(id: params[:id])
+      @article = current_user.articles.find_by(id: params[:id])
       redirect_to root_url if @micropost.nil?
     end
 end

@@ -19,6 +19,7 @@
       <div>
         <strong>Screen Name: </strong><%= @user.screen_name %><br>
         <strong>Email: </strong><%= @user.email %><br>
+        <strong>Posts: </strong><%= @user.articles.count %><br>
         <%= link_to 'edit', edit_user_path(@user) %>
         <% if current_user.permission >= 3 %>
           <div class="admin_control">

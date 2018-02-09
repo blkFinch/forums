@@ -6,6 +6,9 @@
     <em>Posted <%= time_ago_in_words(article.created_at) %> ago.</em>
     
     <%= link_to "Comments", article %>
+    <% if article.comments.any? %>
+    <a>(<%= article.comments.count %>)</a>
+    <% end %>
     <% if current_user == article.user %>|
       <%= link_to 'delete', article, method: :delete,
                                       data: {confirm: "Are you sure? "} %>

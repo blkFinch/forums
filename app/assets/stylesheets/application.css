@@ -36,9 +36,14 @@
   color: #B8F01D;
 }
 
-.wrapper > div:nth-child(odd){
+#user_display{
+  max-height: 245px;
   background-color: #C1EC96;
-  max-height: 240px;
+}
+
+.wrapper > div:nth-child(odd){
+  max-height: 245px;
+  background-color: #C1EC96;
 
 }
 
@@ -52,6 +57,14 @@
 .show_article{
   margin: 10px;
   font-family: courier;
+}
+
+.comments{
+  list-style: none;
+  text-align: right;
+  color: lightblue;
+  width: 50%;
+  float: right;
 }
 
 .profile_picture{

@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       flash[:success] = 'Successful Log in!'
       log_in user 
-      redirect_to user
+      redirect_to root_path
     else
       flash[:danger] = 'Invalid Screen Name / Password'
       render 'new'

@@ -6,16 +6,29 @@
 <body>
   <div class="header"><h1><%= @article.title %></h1></div>
   <div class="wrapper">
-    <div>User</div>
+    <div>
+      <strong>Add Comment: </strong><br>
+      <%= form_with(model: [ @article, @article.comments.build ],
+      local: true) do |form| %>
+      <%= form.text_area :body %><br>
+      <%= form.submit %>
+      <% end %>
+    </div>
     <div id="post_wrapper">
       <p>
         <%= @article.body %>
         <br>
-        <span class="user"><%= link_to @article.user.screen_name, @article.user %></span>
-      <span class="timestamp">
+        <span class="user"><%= link_to @article.user.screen_name, @article.user %></span |       <span class="timestamp">
         <em>Posted <%= time_ago_in_words(@article.created_at) %> ago.</em>
       </span>
+      <% if current_user == @article.user %>|
+      <%= link_to 'delete', @article, method: :delete,
+                                      data: {confirm: "Are you sure? "} %>
+      <% end %>
       </p>
+      <ol class="comments">
+      <%= render @comments %>
+      </ol>
     </div>
   </div>
 

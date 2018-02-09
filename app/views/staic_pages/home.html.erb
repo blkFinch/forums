@@ -36,10 +36,17 @@
           New User?<br>
           <%= link_to "Sign Up!", new_user_path %>
         <% end %>
+        </p>
       </div>
-      </p>
+      <% if logged_in? %>
+        <div id="post_wrapper">
+          <h3>Public Posts</h3>
+          <ol class="articles">
+          <%= render @articles %>
+          </ol>
+        </div>
+      <% end %>
     </div>
-
   </div>
 
 </body>

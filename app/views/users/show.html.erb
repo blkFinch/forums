@@ -25,12 +25,12 @@
             <em>Admin Controls: </em><br>
             <%= link_to 'All Users', users_path %>
           </div>
-        <% end %><br><br>
+        <% end %>
         <%= render 'shared/article_form' %>
       </div>
     </div>
-  <div id="post_wrapper">
-    <% if @articles.any? %>
+  <% if @articles.any? %>
+    <div id="post_wrapper">
       <div>
         <strong>Posts</strong>
         <ol class="articles">
@@ -38,7 +38,7 @@
         </ol>
       </div>
     <% end %>
-  </div>
+    </div>
   </div>
 
 </body>

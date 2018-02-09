@@ -1,5 +1,9 @@
 class StaicPagesController < ApplicationController
   def home
-    @article = current_user.articles.build if logged_in?
+    if logged_in?
+      @article = current_user.articles.build 
+      @feed_items = current_user.feed
+    end
+    @articles = Article.all.by_time
   end
 end

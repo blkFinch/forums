@@ -4,6 +4,12 @@
   <span class="user"><%= link_to article.user.screen_name, article.user %></span>
   <span class="timestamp">
     <em>Posted <%= time_ago_in_words(article.created_at) %> ago.</em>
+    
+    <%= link_to "Comments", article %>
+    <% if current_user == article.user %>|
+      <%= link_to 'delete', article, method: :delete,
+                                      data: {confirm: "Are you sure? "} %>
+    <% end %>
   </span>
   <hr>
 </li>

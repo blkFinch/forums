@@ -26,15 +26,19 @@
       grid-auto-rows: minmax(auto,auto);
     }
 #post_wrapper{
-      background-color: #E878A3;
+      background-color: #8F9297;
       padding: 10px;
       font-family: courier;
       grid-auto-rows: minmax(auto,auto);
+      color: white;
     }
+#post_wrapper a{
+  color: #B8F01D;
+}
 
 .wrapper > div:nth-child(odd){
   background-color: #C1EC96;
-  max-height: 250px;
+  max-height: 240px;
 
 }
 
@@ -43,6 +47,11 @@
   color: white;
   list-style: none;
   display: block;
+}
+
+.show_article{
+  margin: 10px;
+  font-family: courier;
 }
 
 .profile_picture{

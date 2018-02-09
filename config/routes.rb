@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :articles
   end
 
-  resources :articles, only: [:create, :destroy]
+  resources :articles
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

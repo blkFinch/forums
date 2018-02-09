@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <div class="header"><h1><%= @article.title %></h1></div>
+  <div class="wrapper">
+    <div>User</div>
+    <div id="post_wrapper">
+      <p>
+        <%= @article.body %>
+        <br>
+        <span class="user"><%= link_to @article.user.screen_name, @article.user %></span>
+      <span class="timestamp">
+        <em>Posted <%= time_ago_in_words(@article.created_at) %> ago.</em>
+      </span>
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @articles = @user.articles
+    @articles = @user.articles.by_time
     @article = current_user.articles.build if logged_in?
   end
 
@@ -48,6 +48,7 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to root_url
   end
+
 
   private
     def user_params

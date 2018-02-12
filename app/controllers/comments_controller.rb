@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @article = Comment.find(params[:id]).article
+    @article = current_user.comments.find(params[:id]).article
     @comment = @article.comments.find(params[:id])
 
     @comment.destroy

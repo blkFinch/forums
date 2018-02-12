@@ -1,4 +1,4 @@
-require 'test_helper'
+gitrequire 'test_helper'
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do

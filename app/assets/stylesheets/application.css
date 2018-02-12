@@ -44,6 +44,7 @@
 .wrapper > div:nth-child(odd){
   max-height: 245px;
   background-color: #C1EC96;
+  padding: 10px;
 
 }
 

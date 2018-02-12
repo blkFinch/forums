@@ -1,0 +1,39 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title User Profile
+  %body
+    - provide(:title, @user.name)
+    .header
+      %h1
+        = @user.name
+    .wrapper
+      %div
+        /
+          <div class="profile_picture">
+          <haml_loud> gravatar_for @user </haml_loud>
+          </div>
+        %div
+          %strong Screen Name:
+          = @user.screen_name
+          %br/
+          %strong Email:
+          = @user.email
+          %br/
+          %strong Posts:
+          = @user.articles.count
+          %br/
+          = link_to 'edit', edit_user_path(@user)
+          - if current_user.permission >= 3
+            .admin_control
+              %em Admin Controls:
+              %br/
+              = link_to 'All Users', users_path
+          = render 'shared/article_form'
+      - if @articles.any?
+        #post_wrapper
+          %div
+            %strong Posts
+            %ol.articles
+              = render @articles

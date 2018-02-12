@@ -1,7 +1,0 @@
-<%= form_for(@article) do |form| %>
-  <%= render 'shared/error_messages', object: form.object %>
-  <strong>New Post</strong><br>
-  <%= form.text_field :title %><br>
-  <%= form.text_area :body %><br>
-  <%= form.submit "Post" %>
-<% end %>

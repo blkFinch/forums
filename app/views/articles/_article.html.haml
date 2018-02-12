@@ -1,0 +1,18 @@
+%li{:id => "article-#{article.id}"}
+  %span.title
+    %strong= article.title
+  %br/
+  %span.body= article.body
+  %br/
+  %span.user= link_to article.user.screen_name, article.user
+  %span.timestamp
+    %em
+      Posted #{time_ago_in_words(article.created_at)} ago.
+    = link_to "Comments", article
+    - if article.comments.any?
+      %a
+        (#{article.comments.count})
+    - if current_user == article.user
+      |
+      \#{link_to 'delete', article, method: :delete, data: {confirm: "Are you sure? "}}
+  %hr/

@@ -1,8 +1,0 @@
-
-<li id="comment <%= comment.id %>">
-  <em>"<%= comment.body %>"<br>
-  <% if current_user == comment.user || current_user.permission >= 3%>
-  <%= link_to 'Delete', comment, method: :delete %> |
-  <% end %> 
-   <%= link_to comment.user.screen_name, comment.user %></em><br>---
-</li>

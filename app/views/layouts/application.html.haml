@@ -1,0 +1,31 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Forums
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    / Latest compiled and minified CSS
+    %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", :rel => "stylesheet"}/
+    / jQuery library
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"}
+    / Latest compiled JavaScript
+    %script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"}
+  %body
+    - if logged_in?
+      %header
+        = link_to "Home", root_path
+        |
+        \#{link_to current_user.screen_name, current_user}
+        |
+        \#{link_to 'Log Out', logout_path, method: :delete}
+    - flash.each do |message_type, message|
+      %div{:class => "alert alert-#{message_type}"}= message
+    = yield
+    /
+      <footer>
+      <hr>
+      <div class="footer">
+      <haml_loud> debug(params) if Rails.env.development? </haml_loud>
+      </footer>

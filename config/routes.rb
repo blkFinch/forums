@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'staic_pages/home'
 
   get 'users/new'
-  get 'home/index'
+  
   get    '/login',   to: 'staic_pages#home'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'

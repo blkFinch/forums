@@ -1,0 +1,29 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title
+  %body
+    .header
+      %h1= @article.title
+    .wrapper
+      %div
+        %strong Add Comment:
+        %br/
+        = form_with(model: [ @article, @article.comments.build ], |
+          local: true) do |form|                                  |
+          = form.text_area :body
+          %br/
+          = form.submit
+      #post_wrapper
+        %p
+          = @article.body
+          %br/
+          %span.user= link_to @article.user.screen_name, @article.user
+          %em
+            Posted #{time_ago_in_words(@article.created_at)} ago.
+          - if current_user == @article.user
+            |
+            \#{link_to 'delete', @article, method: :delete, data: {confirm: "Are you sure? "}}
+        %ol.comments
+          = render @comments

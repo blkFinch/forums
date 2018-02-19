@@ -3,7 +3,7 @@ class Article < ApplicationRecord
   has_many :comments
   
   scope :by_time, ->{ order(created_at: :desc)}
-  validates :user_id, presence: true
+  validates :user, presence: true
   validates :body, presence: true 
   validates :title, presence: true
 end

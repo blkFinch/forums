@@ -25,7 +25,7 @@
           = @user.articles.count
           %br/
           = link_to 'edit', edit_user_path(@user)
-          - if current_user.permission >= 3
+          - if current_user.permission.to_i >= 3
             .admin_control
               %em Admin Controls:
               %br/

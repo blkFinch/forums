@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
 
-  before_action :logged_in_user, only: [ :show]
+  before_action :logged_in_user, only: [ :show, :create]
+  before_action :correct_user, only: [:destroy]
 
   def index
   end
@@ -36,4 +37,11 @@ class ArticlesController < ApplicationController
       @article = current_user.articles.find_by(id: params[:id])
       redirect_to root_url if @micropost.nil?
     end
+
+   def is_admin
+    unless current_user.permission >= 3
+      flash[:danger] = "Not Authorized!"
+      redirect_to(root_url)
+    end
+  end
 end

@@ -2,6 +2,11 @@ version: '3'
 services:
   db:
     image: postgres
+    environment:
+      POSTGRES_DB: forums_development
+      POSTGRES_USER: forums
+      POSTGRES_PASSWORD: forums
+
     volumes: 
       - db:/var/lib/postrgesql/data
   web:

@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
   before_action :logged_in_user, only: [ :show, :create]
   before_action :correct_user, only: [:destroy]
 
+
   def index
   end
 
@@ -35,7 +36,7 @@ class ArticlesController < ApplicationController
 
     def correct_user
       @article = current_user.articles.find_by(id: params[:id])
-      redirect_to root_url if @micropost.nil?
+      redirect_to root_url if @article.nil?
     end
 
    def is_admin

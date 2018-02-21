@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20180209184613) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "body"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id", "created_at"], name: "index_articles_on_user_id_and_created_at"
@@ -24,8 +27,8 @@ ActiveRecord::Schema.define(version: 20180209184613) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
-    t.integer "user_id"
-    t.integer "article_id"
+    t.bigint "user_id"
+    t.bigint "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_comments_on_article_id"
@@ -42,4 +45,7 @@ ActiveRecord::Schema.define(version: 20180209184613) do
     t.string "name"
   end
 
+  add_foreign_key "articles", "users"
+  add_foreign_key "comments", "articles"
+  add_foreign_key "comments", "users"
 end

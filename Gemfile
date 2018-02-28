@@ -31,6 +31,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 #gem 'delayed_job_active_record','4.0.3'
 
+#json web token
+gem 'jwt'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

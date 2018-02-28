@@ -1,10 +1,12 @@
 class ArticlesController < ApplicationController
 
-  before_action :logged_in_user, only: [ :show, :create]
+  before_action :logged_in_user, only: [:show, :create]
   before_action :correct_user, only: [:destroy]
 
 
   def index
+    @articles = Article.all
+    json_response(@articles)
   end
 
   def create
@@ -20,6 +22,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @comments = @article.comments.by_time.reverse_order
+    # json_response(@article)
   end
 
   def destroy

@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
         redirect_to login_url
       end
     end
+
+    def authorize_request
+      @current_user = (AuthorizeApiRequest.new(request.headers).call)[:user]
+    end
 end

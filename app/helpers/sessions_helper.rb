@@ -1,6 +1,15 @@
 module SessionsHelper
-  def log_in(user)
-    session[:user_id] = user.id
+  def log_in(user = nil)
+    if(user)
+      session[:user_id] = user.id
+    elsif(headers.authorization_token)
+      log_in_with_token()
+    else
+      return false 
+    end
+  end
+
+  def log_in_with_token()
   end
 
   def current_user

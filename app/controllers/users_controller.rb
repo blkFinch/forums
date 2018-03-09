@@ -5,7 +5,10 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all
-    json_response(@users)
+    respond_to do |format|
+      format.html 
+      format.json { json_response(@users) }
+    end
   end
 
   def show
@@ -21,6 +24,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.permission = 1;
+    # auth_token = AuthenticateUser.new(@user.email, @user.password).call
+    # response = { message: Message.account_created, auth_token: auth_token }
+    # json_response(response, :created)
     if @user.save
       log_in @user
       flash[:success] = "Welcome to the forums!"

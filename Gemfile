@@ -34,6 +34,9 @@ gem 'jbuilder', '~> 2.5'
 #json web token
 gem 'jwt'
 
+#serializer for JSON API standard
+gem 'active_model_serializers', '0.9.3'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

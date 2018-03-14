@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'staic_pages#home'
-  get 'staic_pages/home'
+  get 'staic_pages/home', to: "staic_pages#home"
 
   get 'users/new'
   
@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
-  post 'auth/login', to: 'authentication#authenticate'
+  # post 'auth/login', to: 'authentication#authenticate'
 
   resources :users do
     resources :articles
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
+
 
   resources :comments
 

@@ -1,8 +1,15 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :exception, unless: ->{request.format.json? }
+
+  before_action :logged_in_user
+
   include SessionsHelper
   include Response
   include ExceptionHandler
+
+  # before_action :authorize_request
+  # attr_reader :current_user
+
 
   private
 
@@ -13,7 +20,5 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def authorize_request
-      @current_user = (AuthorizeApiRequest.new(request.headers).call)[:user]
-    end
+    
 end

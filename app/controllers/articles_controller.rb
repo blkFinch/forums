@@ -1,13 +1,17 @@
 class ArticlesController < ApplicationController
 
   # before_action :authorize_request [:index]
-  before_action :logged_in_user, only: [:show, :create]
+  
   before_action :correct_user, only: [:destroy]
 
 
   def index
     @articles = Article.all
-    json_response(@articles)
+    # json_response(@articles)
+    respond_to do |format |
+      format.json {render json: @articles.to_json}
+      format.html 
+    end
   end
 
   def create

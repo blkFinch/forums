@@ -3,13 +3,8 @@ class AuthorizeApiRequest
     @headers = headers 
   end
 
-  def call
-    {
-      user: user 
-    }
-  end
 
-  private 
+
 
   attr_reader :headers 
 
@@ -23,12 +18,15 @@ class AuthorizeApiRequest
       )
   end
 
+  private 
+
   def decoded_auth_token
     @decoded_auth_token ||= JsonWebToken.decode(http_auth_header)
   end
 
   def http_auth_header
-    if header['Authorization'].present?
+    Rails.logger.info headers
+    if headers['Authorization'].present?
       return headers['Authorization'].split(' ').last
     end
     raise(ExceptionHandler::MissingToken, Message.missing_token)

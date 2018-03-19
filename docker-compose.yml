@@ -8,7 +8,7 @@ services:
       POSTGRES_PASSWORD: forums
 
     volumes: 
-      - db:/var/lib/postrgesql/data
+      - db:/var/lib/postgresql/data
   web:
     build: .
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
